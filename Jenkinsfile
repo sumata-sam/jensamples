@@ -1,23 +1,24 @@
 pipeline {
-    agent any
+    agent any 
     stages {
-        stage('Hello') {
+        stage('Build') { 
             steps {
-                echo 'Hello World'
-                sh 'mkdir abc'
-                sh 'ls -lart'
+                echo "build"
                 sh 'pwd'
             }
         }
-      
-      stage('Hello1') {
+        stage('Test') { 
             steps {
-                echo 'Hello World'
-                sh 'rmdir abc'
-               // sh 'ls -lart'
-                sh 'pwd'
+                 echo "test"
+                sh 'whoami'
             }
         }
-      
+        stage('Deploy') { 
+            steps {
+                 echo "deploy"
+                sh 'uptime'
+            }
+        }
     }
 }
+
